@@ -37,6 +37,17 @@ The server listens on port `8000` by default. Set `PORT` in `.env` to use a
 different port. The frontend development proxy expects port `3000`, so use
 `PORT=3000` for the standard local setup.
 
+For local and deployed frontend access, configure:
+
+```env
+CORS_ORIGINS=https://streamify-gamma-orcin.vercel.app,http://localhost:5173
+NODE_ENV=production
+```
+
+Use `NODE_ENV=development` locally. In production, `NODE_ENV=production`
+causes authentication cookies to use `Secure` and `SameSite=None`, which is
+required for the deployed frontend and backend to share cookie-based sessions.
+
 ## Important links
 
 - [API documentation](https://documenter.getpostman.com/view/28570926/2s9YsNdVwW)

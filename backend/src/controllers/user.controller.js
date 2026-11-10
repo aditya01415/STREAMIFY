@@ -6,10 +6,14 @@ import ApiResponse from "../utils/ApiResponse.js"
 import JWT from "jsonwebtoken"
 import mongoose from 'mongoose'
 
+const useSecureCookies =
+    process.env.NODE_ENV === "production" ||
+    process.env.COOKIE_SECURE === "true";
+
 const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    secure: useSecureCookies,
+    sameSite: useSecureCookies ? "none" : "lax",
 };
 
 const generateAccessAndRefreshToken = async(userId) => {
