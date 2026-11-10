@@ -40,7 +40,7 @@ different port. The frontend development proxy expects port `3000`, so use
 For local and deployed frontend access, configure:
 
 ```env
-CORS_ORIGINS=https://streamify-gamma-orcin.vercel.app,http://localhost:5173
+CORS_ORIGINS=
 NODE_ENV=production
 ```
 
